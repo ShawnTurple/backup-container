@@ -1,5 +1,7 @@
 # This image provides a postgres installation from which to run backups
-FROM --platform=linux/amd64 quay.io/fedora/postgresql-14:14
+ARG POSTGRES_IMAGE=quay.io/fedora/postgresql-14:14
+ARG PLATFORM=linux/amd64
+FROM --platform=${PLATFORM} ${POSTGRES_IMAGE}
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
